@@ -1,0 +1,67 @@
+{
+    "name": "tdd-bdd-final-project-js",
+    "version": "1.0.0",
+    "description": "TDD/BDD Final Project using Node.js and Express",
+    "main": "src/app.js",
+    "scripts": {
+        "start": "node src/app.js",
+        "dev": "nodemon src/app.js",
+        "test": "jest --coverage --runInBand",
+        "test:watch": "jest --watch",
+        "bdd": "cucumber-js",
+        "lint": "eslint src/ tests/ features/",
+        "lint:fix": "eslint src/ tests/ features/ --fix",
+        "db:migrate": "node src/database/migrate.js",
+        "db:reset": "node src/database/reset.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "helmet": "^7.0.0",
+        "joi": "^17.9.2",
+        "morgan": "^1.10.0",
+        "pg": "^8.11.0",
+        "sequelize": "^6.32.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.27.4",
+        "@babel/register": "^7.27.1",
+        "@cucumber/cucumber": "^9.5.1",
+        "@faker-js/faker": "^8.0.2",
+        "axios": "^1.10.0",
+        "eslint": "^8.44.0",
+        "jest": "^29.6.1",
+        "nodemon": "^3.0.1",
+        "selenium-webdriver": "^4.11.1",
+        "supertest": "^6.3.3"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "collectCoverageFrom": [
+            "src/models/product.js",
+            "src/routes/products.js"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 0,
+                "functions": 0,
+                "lines": 0,
+                "statements": 0
+            }
+        },
+        "setupFilesAfterEnv": [
+            "<rootDir>/tests/setup.js"
+        ]
+    },
+    "keywords": [
+        "tdd",
+        "bdd",
+        "nodejs",
+        "express",
+        "jest",
+        "cucumber"
+    ],
+    "author": "Student",
+    "license": "Apache-2.0"
+}
